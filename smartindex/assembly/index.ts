@@ -57,7 +57,7 @@ export function getBalance(address_str: i32): void {
 function _getBalance(address: string): i64 {
   let balance: i64 = 0;
   const selectResult = ledgerTable.select([new Column("address", address)]);
-  if (getResultFromJson(selectResult, "error", "string") != "not-found") {
+  if (!getResultFromJson(selectResult, "error", "string").includes("no rows")) {
     balance = i64(
       parseInt(getResultFromJson(selectResult, "balance", "string"))
     );
