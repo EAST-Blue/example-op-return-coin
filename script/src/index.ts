@@ -13,7 +13,7 @@ import { OpReturn } from "@east-bitcoin-lib/sdk/dist/addresses/opReturn";
 const bitcoinaApi = new BElectrsAPI({
   network: "regtest",
   apiUrl: {
-    regtest: "http://localhost:3002",
+    regtest: "https://blockstream-electrs-api.regnet.btc.eastlayer.io"
   },
 });
 
