@@ -1,3 +1,9 @@
+# About Eastlayer
+
+Eastlayer is a decentralized data layer for Bitcoin. Eastlayer offers smart indexes, where developers can easily deploy custom indexing logic to process data from Bitcoin. Developers can write smart indexes with AssemblyScript and deploy it directly into Eastlayer, making the development and deployment of custom indexes seamlessly.
+
+Eastlayer is an app-chain with BFT+ consensus, where each proposed block includes Bitcoin latest hash to maintain the guarantee of data integrity between Eastlayer and Bitcoin network. This approach also makes Eastlayer able to handle Bitcoin reorganization.
+
 # Example of Eastlayer's Smart Index (Coin using OP_RETURN)
 
 Using the Smart Index, anyone has the ability to create their own metaprotocol and have it indexed in a decentralized manner. This means that developers can design and implement unique protocols that suit their specific needs, and these protocols will be indexed without relying on a central authority.
