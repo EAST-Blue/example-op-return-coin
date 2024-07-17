@@ -67,8 +67,9 @@ function _getBalance(address: string): i64 {
   return balance;
 }
 
-export function index(number_of_blocks_ptr: i32): void {
-  const number_of_block: i64 = i64(parseInt(ptrToString(number_of_blocks_ptr)));
+export function index(from_ptr: i32, to_ptr: i32): void {
+  const fromBlock: i64 = i64(parseInt(ptrToString(from_ptr)));
+  const toBlock: i64 = i64(parseInt(ptrToString(to_ptr)));
 
   // get latest state
   const latestBlock: i64 = i64(
@@ -81,8 +82,8 @@ export function index(number_of_blocks_ptr: i32): void {
     )
   );
 
-  for (let i = 1; i < number_of_block + 1; i++) {
-    const utxos = getTxUTXOByBlockHeight(latestBlock + i);
+  for (let i = fromBlock; i < toBlock + 1; i++) {
+    const utxos = getTxUTXOByBlockHeight(i);
 
     for (let i = 0; i < utxos.length; i++) {
       if (utxos[i].pkAsmScripts.length == 2) {
@@ -185,7 +186,7 @@ export function index(number_of_blocks_ptr: i32): void {
 
     stateTable.update(
       [new Column("id", "0")],
-      [new Column("indexed_block_height", (latestBlock + i).toString())]
+      [new Column("indexed_block_height", i.toString())]
     );
   }
 }
