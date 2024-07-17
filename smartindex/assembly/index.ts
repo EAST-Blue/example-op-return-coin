@@ -82,10 +82,10 @@ export function index(from_ptr: i32, to_ptr: i32): void {
     )
   );
 
-  for (let i = fromBlock; i < toBlock + 1; i++) {
+  for (let i = fromBlock; i <= toBlock; i++) {
     const utxos = getTxUTXOByBlockHeight(i);
 
-    for (let i = 0; i <= utxos.length; i++) {
+    for (let i = 0; i < utxos.length; i++) {
       if (utxos[i].pkAsmScripts.length == 2) {
         if (utxos[i].pkAsmScripts[0] === "OP_RETURN") {
           const msg = decode(utxos[i].pkAsmScripts[1]);
